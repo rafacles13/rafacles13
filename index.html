@@ -490,9 +490,18 @@
   <a href="jogo24.html" class="botao-jogar22">Jogar Jogo: Quiz Aviação 19</a>
   <a href="jogo25.html" class="botao-jogar23">Jogar Jogo: Quiz Aviação 20</a>
 
-  <footer>
-  
-    <img src="https://visitor-badge.glitch.me/badge?page_id=rafacles13.rafacles13" alt="Contador de visitantes"/>
-</footer>
+  <div id="visitor-count">Visitantes: <span id="count">0</span></div>
+
+<script>
+  const namespace = "rafacles13";
+  const key = "rafacles13";
+
+  fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById("count").textContent = data.value;
+    })
+    .catch(err => console.log("Erro no contador de visitantes:", err));
+</script>
 </body>
 </html>
